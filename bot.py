@@ -84,7 +84,12 @@ def start_markup():
     markup.add(my_channel)
     markup.add(helpn,share)
     return markup
-
+@bot.message_handler(commands=['check'])
+def private_channel():
+	privvate = message.text + "This is your text"
+	bot.reply_to(message, privvate)
+	
+	
 def done_channel_markup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 2
