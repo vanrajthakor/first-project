@@ -64,6 +64,7 @@ def channel_data(message):
         session.add(Channel(chat_id=message.chat.id,channel='@'+channel_username,channel_id=channel_id,subscribers=subscribers,admin_username='@'+admin_username,channel_name=channel_name))
         session.commit()
         get_=bot.send_message(message.chat.id,"✅ Send description(max 5 words and 2 emojis)",parse_mode='markdown')
+	text_k = "Ok files"
         bot.register_next_step_handler(get_,add_description,channel_id)
         
     if len(channel):
@@ -75,7 +76,7 @@ def channel_data(message):
 def start_markup():
     markup = InlineKeyboardMarkup()
     markup.row_width = 3
-    add_channel=InlineKeyboardButton('➕ Add Channel',callback_data='add_channel')
+    add_channel=InlineKeyboardButton('➕ Add your Channel',callback_data='add_channel')
     my_channel=InlineKeyboardButton('🏷 My Channels',callback_data='my_channel')
     share=InlineKeyboardButton('🌐 Share Bot',switch_inline_query=' Pink Promotion provides you the best cross promotion services! Add your channel and Participate in Promotions Join Now @Apkkkkkbot')
     helpn=InlineKeyboardButton('🆘 Help',callback_data='help')
