@@ -84,6 +84,7 @@ def start_markup():
     markup.add(my_channel)
     markup.add(helpn,share)
     return markup
+
 @bot.message_handler(commands=['check'])
 def private_channel():
 	privvate = message.text + "This is your text"
@@ -114,6 +115,11 @@ def my_channel_markup():
     remove=InlineKeyboardButton('🗑 Remove Channel',callback_data='remove_channel')
     markup.add(done,remove)
     return markup
+
+@bot.message_handler(commands=['pass'])
+def accept_channel():
+	
+	bot.reply_to("Your channel accepted successfully", privvate)
 
 def help_markup():
     markup = InlineKeyboardMarkup()
